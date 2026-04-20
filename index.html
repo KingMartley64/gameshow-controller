@@ -1,4 +1,24 @@
-<p>Game Show Controller</p>
-<h1 style="text-align: center;"><span style="font-family: 'Times New Roman', Times, serif;">STUDIO 64 TEST</span></h1>
-<p>&nbsp;</p>
-<p><button onclick="send('WHEEL')">START/STOP WHEEL</button></p>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Game Show Controller</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;"><span style="font-family: 'Times New Roman', Times, serif;">STUDIO 64 TEST</span></h1>
+    <p><button onclick="send('WHEEL')">START/STOP WHEEL</button></p>
+    <script>
+        const SERVER = "https://gameshow-server-q2if.onrender.com";
+        
+        function send(command) {
+          fetch(SERVER + "/send", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ command })
+          });
+        }
+    </script>
+</body>
+
+</html>
